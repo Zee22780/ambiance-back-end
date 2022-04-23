@@ -10,6 +10,13 @@ function index (req, res) {
   })
 }
 
+function create (req, res) {
+  Spot.create(req.body)
+  .then(spot => res.json(spot))
+  .catch(err => res.json(err))
+}
+
 export {
-  index
+  index,
+  create
 }
