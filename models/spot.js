@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const reviewSchema = newSchema({
+const reviewSchema = new Schema({
   comment: String,
   rating: {type: Number, min: 1, max: 5, default: 5}
   },{
