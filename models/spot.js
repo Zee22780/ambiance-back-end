@@ -10,19 +10,19 @@ const reviewSchema = new Schema({
 })
 
 const spotSchema = new Schema({
-  name: String,
-  country: String,
-  city: String,
-  neighborhood: String,
-  type: String,
-  laptop: Boolean,
-  outlets: Boolean,
-  wifi: Boolean,
-  tables: String,
-  decor: String,
-  music: String,
-  price: Number,
-  eats: String,
+  name: {type: String},
+  country: {type: String},
+  city: {type: String},
+  neighborhood: {type: String},
+  type: {type: String},
+  laptop: {type: Boolean},
+  outlets: {type: Boolean},
+  wifi: {type: Boolean},
+  tables: {type: String},
+  decor: {type: String},
+  music: {type: String},
+  price: {type: Number},
+  food: {type: String},
   reviews: [reviewSchema]
 })
 
