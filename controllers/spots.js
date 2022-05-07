@@ -16,7 +16,21 @@ function create (req, res) {
   .catch(err => res.json(err))
 }
 
+function update (req, res) {
+  Spot.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(spot => res.json(spot))
+  .catch(err => res.json(err))
+}
+
+function deleteSpot (req, res) {
+  Spot.findByIdAndDelete(req.params.id)
+  .then(spot => res.json(spot))
+  .catch(err => res.json(err))
+}
+
 export {
   index,
-  create
+  create,
+  update,
+  deleteSpot as delete
 }
