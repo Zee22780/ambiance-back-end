@@ -12,6 +12,8 @@ router.use(decodeUserFromToken)
 
 router.get('/', spotsCtrl.index)
 router.post('/', spotsCtrl.create)
+router.put('/:id', spotsCtrl.update)
+router.delete('/:id', spotsCtrl.delete)
 
 export {
   router
