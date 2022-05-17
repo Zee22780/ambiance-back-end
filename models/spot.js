@@ -14,6 +14,7 @@ const spotSchema = new Schema({
   country: {type: String},
   city: {type: String},
   neighborhood: {type: String},
+  //Determine what type the type field should be to make this a radio field.
   type: {type: String},
   laptop: {type: Boolean},
   outlets: {type: Boolean},
