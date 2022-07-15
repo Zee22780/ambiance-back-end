@@ -10,10 +10,20 @@ function index (req, res) {
   })
 }
 
-function create (req, res) {
+// function create (req, res) {
+//   Spot.create(req.body)
+//   .then(spot => res.json(spot))
+//   .catch(err => res.json(err))
+// }
+
+function create(req, res) {
+  req.body.owner = req.user.profile
   Spot.create(req.body)
   .then(spot => res.json(spot))
-  .catch(err => res.json(err))
+  .catch(err => {
+    console.log(err)
+    res.json(err)
+  })
 }
 
 function update (req, res) {
