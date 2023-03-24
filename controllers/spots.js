@@ -2,6 +2,7 @@ import { Spot } from '../models/spot.js'
 
 function index (req, res) {
   Spot.find({})
+  .populate('owner')
   .then(spots =>{
     res.json(spots)
   })
@@ -11,18 +12,24 @@ function index (req, res) {
 }
 
 function create (req, res) {
+  req.body.owner = req.user.profile
   Spot.create(req.body)
   .then(spot => res.json(spot))
   .catch(err => res.json(err))
 }
 
-// function create(req, res) {
+// function create (req, res) {
 //   req.body.owner = req.user.profile
 //   Spot.create(req.body)
-//   .then(spot => res.json(spot))
-//   .catch(err => {
+//   .then(spot => {
+//     spot.populate('owner')
+//     .then(populatedSpot => {
+//       res.status(201).json(populatedSpot)
+//     })
+//   })
+//   .catch(err =>{
 //     console.log(err)
-//     res.json(err)
+//     res.status(500).json(err)
 //   })
 // }
 
